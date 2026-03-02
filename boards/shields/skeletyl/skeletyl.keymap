@@ -8,7 +8,8 @@
 #include <dt-bindings/zmk/keys.h>
 
 #define GALLIUM 0
-#define SYM 1
+#define UA 1
+#define SYM 2
 
 / {
     behaviors {
@@ -131,6 +132,56 @@
             #binding-cells = <0>;
             mods = <(MOD_LSFT)>;
         };
+
+        /* UA layer mod-morphs */
+
+        mm_t_quot: mm_t_quot {
+            compatible = "zmk,behavior-mod-morph";
+            label = "MM_T_QUOT";
+            bindings = <&kp T>, <&kp SINGLE_QUOTE>;
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+        };
+
+        mm_s_rbkt: mm_s_rbkt {
+            compatible = "zmk,behavior-mod-morph";
+            label = "MM_S_RBKT";
+            bindings = <&kp S>, <&kp RBKT>;
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+        };
+
+        mm_u_grv: mm_u_grv {
+            compatible = "zmk,behavior-mod-morph";
+            label = "MM_U_GRV";
+            bindings = <&kp U>, <&kp GRAVE>;
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+        };
+
+        mm_dot_kh: mm_dot_kh {
+            compatible = "zmk,behavior-mod-morph";
+            label = "MM_DOT_KH";
+            bindings = <&kp SLASH>, <&kp LBKT>;
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+        };
+
+        mm_comma_b: mm_comma_b {
+            compatible = "zmk,behavior-mod-morph";
+            label = "MM_COMMA_B";
+            bindings = <&kp LS(SLASH)>, <&kp COMMA>;
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+        };
+
+        mm_apos_yu: mm_apos_yu {
+            compatible = "zmk,behavior-mod-morph";
+            label = "MM_APOS_YU";
+            bindings = <&kp BSLH>, <&kp DOT>;
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+        };
     };
 
     combos {
@@ -139,42 +190,42 @@
         left_index_home_top_ctrl {
             bindings = <&sk LCTRL>;
             key-positions = <3 13>;
-            layers = <0 1>;
+            layers = <0 1 2>;
             timeout-ms = <50>;
         };
 
         left_middle_home_top_cmd {
             bindings = <&sk LGUI>;
             key-positions = <2 12>;
-            layers = <0 1>;
+            layers = <0 1 2>;
             timeout-ms = <50>;
         };
 
         left_ring_home_top_opt {
             bindings = <&sk LALT>;
             key-positions = <1 11>;
-            layers = <0 1>;
+            layers = <0 1 2>;
             timeout-ms = <50>;
         };
 
         right_index_home_top_ctrl {
             bindings = <&sk RCTRL>;
             key-positions = <6 16>;
-            layers = <0 1>;
+            layers = <0 1 2>;
             timeout-ms = <50>;
         };
 
         right_middle_home_top_cmd {
             bindings = <&sk RGUI>;
             key-positions = <7 17>;
-            layers = <0 1>;
+            layers = <0 1 2>;
             timeout-ms = <50>;
         };
 
         right_ring_home_top_opt {
             bindings = <&sk RALT>;
             key-positions = <8 18>;
-            layers = <0 1>;
+            layers = <0 1 2>;
             timeout-ms = <50>;
         };
 
@@ -187,6 +238,18 @@
             bindings = <&pwd>;
             key-positions = <5 9>;
         };
+
+        gallium_to_ua {
+            bindings = <&m_to_ua>;
+            key-positions = <32 33>;
+            layers = <0>;
+        };
+
+        ua_to_gallium {
+            bindings = <&m_to_gallium>;
+            key-positions = <32 33>;
+            layers = <1>;
+        };
     };
 
     macros {
@@ -196,6 +259,24 @@
             bindings = <&kp H>;
             label = "PWD";
         };
+
+        m_to_ua: m_to_ua {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp F15 &to UA>;
+            label = "M_TO_UA";
+            wait-ms = <30>;
+            tap-ms = <40>;
+        };
+
+        m_to_gallium: m_to_gallium {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp F14 &to GALLIUM>;
+            label = "M_TO_GALLIUM";
+            wait-ms = <30>;
+            tap-ms = <40>;
+        };
     };
 
     keymap {
@@ -204,10 +285,20 @@
         GALLIUM {
             label = " GALLIUM";
             bindings = <
-&kp B  &kp L  &kp D    &kp C      &kp V        &kp J      &kp Y       &kp O        &kp U  &mm_comma_semi
-&kp N  &kp R  &kp T    &kp S      &kp G        &kp P      &kp H       &kp A        &kp E  &kp I
-&kp X  &kp Q  &kp M    &kp W      &kp Z        &kp K      &kp F       &kp SQT      &kp SLASH  &mm_dot_col
-                        &kp ESC    &kp SPACE    &mo SYM    &kp BSPC   &kp LSHIFT   &kp RET
+&kp B  &kp L  &kp D    &kp C      &kp V        &kp J      &kp Y       &kp O            &kp U          &kp SLASH
+&kp N  &kp R  &kp T    &kp S      &kp G        &kp P      &kp H       &kp A            &kp E          &kp I
+&kp X  &kp Q  &kp M    &kp W      &kp Z        &kp K      &kp F       &mm_dot_col      &mm_comma_semi &kp SQT
+                        &kp ESC    &kp SPACE    &mo SYM    &kp BSPC   &kp LSHIFT       &kp RET
+            >;
+        };
+
+        UA {
+            label = " UKRAINE";
+            bindings = <
+&kp Q  &kp W       &kp E   &kp R   &mm_t_quot    &kp Y   &mm_u_grv  &kp I         &kp O         &kp P
+&kp A  &mm_s_rbkt  &kp D   &kp F   &kp G         &kp H   &kp J      &kp K         &kp L         &kp SEMI
+&kp Z  &kp X       &kp C   &kp V   &kp B         &kp N   &kp M      &mm_dot_kh    &mm_comma_b   &mm_apos_yu
+                            &trans  &trans         &trans  &trans     &trans        &trans
             >;
         };
 
@@ -216,7 +307,7 @@
             bindings = <
 &mm_pipe_bslh  &mm_lbkt_lbrace  &mm_lpr_hash  &mm_lcbr_dollar  &trans      &trans     &mm_rcbr_amp  &mm_rpr_star  &mm_rbkt   &kp GRAVE
 &kp N1         &kp N2           &mm_n3_left   &mm_n4_right     &kp EQUAL   &kp MINUS  &mm_n7_down   &mm_n8_up     &mm_n9_lt  &mm_n0_gt
-&trans         &trans           &trans        &kp N5           &kp TAB     &kp TAB    &kp N6        &trans        &trans     &trans
+&trans         &trans           &kp F11       &kp N5           &kp TAB     &kp TAB    &kp N6        &kp F12       &trans     &trans
                                               &none            &trans      &trans     &none         &trans        &none
             >;
         };
