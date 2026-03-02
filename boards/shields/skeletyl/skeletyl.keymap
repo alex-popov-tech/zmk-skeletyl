@@ -7,7 +7,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 
-#define VUKEYS 0
+#define GALLIUM 0
 #define SYM 1
 
 / {
@@ -201,12 +201,12 @@
     keymap {
         compatible = "zmk,keymap";
 
-        VUKEYS {
-            label = " VU KEYS";
+        GALLIUM {
+            label = " GALLIUM";
             bindings = <
-&kp Q  &kp C  &kp D    &kp M      &kp V        &kp B      &kp W       &kp U        &kp K  &kp SQT
-&kp N  &kp S  &kp T    &kp R      &kp L        &kp Y      &kp A       &kp E        &kp O  &kp I
-&kp X  &kp F  &kp G    &kp H      &kp Z        &kp SLASH  &kp P       &mm_dot_col  &kp J  &mm_comma_semi
+&kp B  &kp L  &kp D    &kp C      &kp V        &kp J      &kp Y       &kp O        &kp U  &mm_comma_semi
+&kp N  &kp R  &kp T    &kp S      &kp G        &kp P      &kp H       &kp A        &kp E  &kp I
+&kp X  &kp Q  &kp M    &kp W      &kp Z        &kp K      &kp F       &kp SQT      &kp SLASH  &mm_dot_col
                         &kp ESC    &kp SPACE    &mo SYM    &kp BSPC   &kp LSHIFT   &kp RET
             >;
         };
