@@ -162,7 +162,7 @@
         mm_dot_kh: mm_dot_kh {
             compatible = "zmk,behavior-mod-morph";
             label = "MM_DOT_KH";
-            bindings = <&kp SLASH>, <&kp LBKT>;
+            bindings = <&kp LBKT>, <&kp SLASH>;
             #binding-cells = <0>;
             mods = <(MOD_LSFT)>;
         };
@@ -170,7 +170,7 @@
         mm_comma_b: mm_comma_b {
             compatible = "zmk,behavior-mod-morph";
             label = "MM_COMMA_B";
-            bindings = <&kp LS(SLASH)>, <&kp COMMA>;
+            bindings = <&kp COMMA>, <&kp LS(SLASH)>;
             #binding-cells = <0>;
             mods = <(MOD_LSFT)>;
         };
@@ -178,7 +178,7 @@
         mm_apos_yu: mm_apos_yu {
             compatible = "zmk,behavior-mod-morph";
             label = "MM_APOS_YU";
-            bindings = <&kp BSLH>, <&kp DOT>;
+            bindings = <&kp DOT>, <&kp BSLH>;
             #binding-cells = <0>;
             mods = <(MOD_LSFT)>;
         };
