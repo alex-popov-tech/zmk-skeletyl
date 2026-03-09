@@ -3,7 +3,7 @@ id: skeletyl
 name: Skeletyl
 type: shield
 url: https://github.com/bastardkb/skeletyl
-exposes: [nrfmicro_13]
+exposes: [nrfmicro/nrf52840/zmk]
 features:
   - keys
   - studio
