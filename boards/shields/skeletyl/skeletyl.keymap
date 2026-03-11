@@ -16,7 +16,15 @@
         mm_comma_semi: mm_comma_semi {
             compatible = "zmk,behavior-mod-morph";
             label = "MM_COMMA_SEMI";
-            bindings = <&kp COMMA>, <&kp SEMI>;
+            bindings = <&kp COMMA>, <&kp LS(SLASH)>;
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+        };
+
+        mm_slash_semi: mm_slash_semi {
+            compatible = "zmk,behavior-mod-morph";
+            label = "MM_SLASH_SEMI";
+            bindings = <&kp SLASH>, <&kp SEMI>;
             #binding-cells = <0>;
             mods = <(MOD_LSFT)>;
         };
@@ -287,7 +295,7 @@
             bindings = <
 &kp B  &kp L  &kp D    &kp C      &kp V        &kp J      &kp Y       &kp O            &kp U          &kp SQT
 &kp N  &kp R  &kp T    &kp S      &kp G        &kp P      &kp H       &kp A            &kp E          &kp I
-&kp X  &kp Q  &kp M    &kp F      &kp Z        &kp K      &kp W       &mm_dot_col      &kp SLASH      &mm_comma_semi
+&kp X  &kp Q  &kp M    &kp F      &kp Z        &kp K      &kp W       &mm_dot_col      &mm_slash_semi      &mm_comma_semi
                         &kp ESC    &kp SPACE    &mo SYM    &kp BSPC   &kp LSHIFT       &kp RET
             >;
         };
