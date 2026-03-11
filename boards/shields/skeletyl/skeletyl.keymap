@@ -167,18 +167,18 @@
             mods = <(MOD_LSFT)>;
         };
 
-        mm_comma_b: mm_comma_b {
+        mm_comma_yu: mm_comma_yu {
             compatible = "zmk,behavior-mod-morph";
-            label = "MM_COMMA_B";
-            bindings = <&kp COMMA>, <&kp LS(SLASH)>;
+            label = "MM_COMMA_YU";
+            bindings = <&kp DOT>, <&kp LS(SLASH)>;
             #binding-cells = <0>;
             mods = <(MOD_LSFT)>;
         };
 
-        mm_apos_yu: mm_apos_yu {
+        mm_apos_z: mm_apos_z {
             compatible = "zmk,behavior-mod-morph";
-            label = "MM_APOS_YU";
-            bindings = <&kp DOT>, <&kp BSLH>;
+            label = "MM_APOS_Z";
+            bindings = <&kp P>, <&kp BSLH>;
             #binding-cells = <0>;
             mods = <(MOD_LSFT)>;
         };
@@ -295,9 +295,9 @@
         UA {
             label = " UKRAINE";
             bindings = <
-&kp Q  &kp W       &kp E   &kp R   &mm_t_quot    &kp Y   &mm_u_grv  &kp I         &kp O         &kp P
+&kp Q  &kp W       &kp E   &kp R   &mm_t_quot    &kp Y   &mm_u_grv  &kp I         &kp O         &mm_apos_z
 &kp A  &mm_s_rbkt  &kp D   &kp F   &kp G         &kp H   &kp J      &kp K         &kp L         &kp SEMI
-&kp Z  &kp X       &kp C   &kp V   &kp B         &kp N   &kp M      &mm_dot_kh    &mm_apos_yu   &mm_comma_b
+&kp Z  &kp X       &kp C   &kp V   &kp B         &kp N   &kp M      &mm_dot_kh    &kp COMMA     &mm_comma_yu
                             &trans  &trans         &trans  &trans     &trans        &trans
             >;
         };
